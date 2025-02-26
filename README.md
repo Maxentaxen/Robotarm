@@ -17,7 +17,7 @@ L_1\begin{bmatrix} \cos(\alpha_1) \\ \sin(\alpha_1) \end{bmatrix} + L_2\begin{bm
 \
 where $`L_1, L_2`$ are the lenghts of the segments and
 $`\alpha_1, \alpha_2`$ are the joint angles measured up from the previous arm segment.
-Solving this equation is not that hard, it only requires some simply geometry and trigonometry and also on the fact that $\alpha_1+\alpha_2 = \tan^{-1}\left(\frac{y}{x}\right)$ which can be seen easily in a diagram.
+Solving this equation is not that hard, the only other thing we need to know is that $\alpha_1+\alpha_2 = \tan^{-1}\left(\frac{y}{x}\right)$ which can be seen easily in a diagram.
 
 ### §1.2. Making it 3d
 Finding joint angles in 2 dimensions is great and all but we want this to be able to move in 3d-space. This only really adds one step to the processing and it's not that complicated.\
