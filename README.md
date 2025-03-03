@@ -38,11 +38,8 @@ After that, we use our main equation using $(r,h)$ as our target point and then 
 ## §2. Components
 The user of the project must be able to input a point that the arm is to move to. There are two parts to this:
 
-### §2.1. OLED-display
-The project will have an OLED-display that will display 3 numbers which represent the target point that the arm will move to when the target is confirmed.
+### 2.1. Servo motors
+The project just needs 3 servo motors.
 
-### §2.2. Potentiometers
-In order for the user to change the target point there will be 3 potentiometers each corresponding to one coordinate of the target point. Alongside these there will be a button to confirm the target and at that point will joint angles be calculated and servor rotated.
-
-### §2.3. Servo motors
-Obviously, this project requires servos. 3 of them to be exact. These are of course used to rotate the arm into position.
+### 2.2. A phone
+You need a phone :)
