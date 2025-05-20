@@ -41,5 +41,5 @@ The user of the project must be able to input a point that the arm is to move to
 ### 2.1. Servo motors
 The project just needs 3 servo motors.
 
-### 2.2. A phone
-You need a phone :)
+### 2.2. A computer
+You need a computer with the arduino IDE in order to communicate with the system
