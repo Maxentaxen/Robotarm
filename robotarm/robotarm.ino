@@ -8,13 +8,13 @@ bool newData = false;
 int dataNumber = 0;
 int index;
 
-float target_point[3] = { -3, 4, 5 };
+float target_point[3] = { 10, 0, 0 };
 float cylindrical_coordinates[3];
 float thetas[2];
 float current_position[3];
 float baseAngle;
-float l1 = 5;
-float l2 = 7;
+float l1 = 10;
+float l2 = 5;
 const unsigned long radToDeg = 180 * 1 / PI;
 
 
@@ -44,8 +44,6 @@ void setup() {
   armServo.write(0);
   elbowServo.write(0);
   delay(2000);
-  //myServo.write(cylindrical_coordinates[1] * 180 / PI);
-  //armServo.write((thetas[0] * 180 / PI));
 }
 
 void loop() {
@@ -86,7 +84,7 @@ void recvWithEndMarker() {
         ndx = numChars - 1;
       }
     } else {
-      receivedChars[ndx] = '\0';  // terminate the string
+      receivedChars[ndx] = '\0';
       ndx = 0;
       newData = true;
     }
@@ -94,28 +92,31 @@ void recvWithEndMarker() {
 }
 
 void showNewData() {
-  if (newData == true) {               // new for this version
-    dataNumber = atoi(receivedChars);  // new for this version
+  if (newData == true) {  
+    if (receivedChars[0] == "e") {
+      myServo.write(0);
+      armServo.write(0);
+      elbowServo.write(0);
+    } 
+    else {
+    dataNumber = atoi(receivedChars);  
     int previous_value = target_point[index];
     Serial.println(dataNumber);
     target_point[index] = dataNumber;
     get_cylindrical();
     get_thetas();
-    if (pow(target_point[0], 2) + pow(target_point[1], 2) + pow(target_point[2], 2) > pow(hypot(l1, l2), 2)) {
+    if (pow(target_point[0], 2) + pow(target_point[1], 2) + pow(target_point[2], 2) > pow(l1, 2) + pow(l2, 2)) {
       Serial.println("Invalid point");
       target_point[index] = previous_value;
       delay(500);
     }
     index = (index + 1) % 3;
-    writeRadians(cylindrical_coordinates[1]);
+    myServo.write(cylindrical_coordinates[1] * 180 / PI);
     armServo.write(thetas[0] * 180 / PI);
-    elbowServo.write(thetas[0] * 180 / PI);
+    elbowServo.write(abs(thetas[1] * 180 / PI));
     Serial.println("Current position: " + String(target_point[0]) + ", " + String(target_point[1]) + ", " + String(target_point[2]));
+    }
     newData = false;
   }
 }
 
-
-void writeRadians(float angle) {
-  myServo.write(angle * radToDeg);
-}
