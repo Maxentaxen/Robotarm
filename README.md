@@ -33,13 +33,3 @@ $`\begin{bmatrix}
               z \end{bmatrix}`$\
 \
 After that, we use our main equation using $(r,h)$ as our target point and then simply rotate the base to achieve the correct $\theta$.
- 
-
-## §2. Components
-The user of the project must be able to input a point that the arm is to move to. There are two parts to this:
-
-### 2.1. Servo motors
-The project just needs 3 servo motors.
-
-### 2.2. A computer
-You need a computer with the arduino IDE in order to communicate with the system
