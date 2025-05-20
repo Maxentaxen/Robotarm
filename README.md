@@ -21,7 +21,7 @@ Solving this equation is not that hard, the only other thing we need to know is 
 
 ### §1.2. Making it 3d
 Finding joint angles in 2 dimensions is great and all but we want this to be able to move in 3d-space. This only really adds one step to the processing and it's not that complicated.\
-The only thing needed is to convert the 3d-problem into a 2d-problem. This is accomplished by converting the target point's cartesian coordinates $(x, y, z)$ into cylindrical coordinates $(r, \theta, h)$ where r is the radial distance from the z-axis, $\theta$ is the angle about the z-axis and h is the height. This is achieved using the following equation:
+The only thing needed is to convert the 3d-problem into a 2d-problem. This is accomplished by converting the target point's cartesian coordinates $(x, y, z)$ into cylindrical coordinates $(r, \theta, h)$ where r is the radial distance from the z-axis, $\theta$ is the angle about the z-axis measured counterclockwise from the positive x-axis and h is the height above the xy-plane. This is achieved using the following equation:
 
 $`\begin{bmatrix} 
               r \\ 
